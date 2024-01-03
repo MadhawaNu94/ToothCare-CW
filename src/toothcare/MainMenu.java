@@ -202,7 +202,8 @@ public class MainMenu extends javax.swing.JFrame {
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         Patient pat=new Patient();
         pat.show();
-        this.dispose();// TODO add your handling code here:
+        this.dispose();
+        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked

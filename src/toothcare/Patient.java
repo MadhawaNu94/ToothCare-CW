@@ -4,13 +4,25 @@
  */
 package toothcare;
 
+import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.demo.DateChooserPanel;
+import java.awt.HeadlessException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
+import java.util.ArrayList;
+import javax.management.modelmbean.ModelMBean;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
 
 /**
  *
@@ -18,12 +30,22 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Patient extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Appointment
-     */
+    
+
+    
+    
+    
+    
+    
     public Patient() {
         initComponents();
+        
     }
+
+    private Patient(String patId, String patName, String patPhone, String patAddress, String patDOB, String gender, String age) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
 
     public  void calAge(){
      jpatdob.setDateFormatString("yyyy/MM/dd");
@@ -91,6 +113,11 @@ public class Patient extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -315,8 +342,7 @@ public class Patient extends javax.swing.JFrame {
                                     .addComponent(jButton1)
                                     .addComponent(jButton3))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                        .addComponent(jLabel10))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -331,7 +357,8 @@ public class Patient extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPatAddrss)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -433,22 +460,70 @@ public class Patient extends javax.swing.JFrame {
     }//GEN-LAST:event_jpatdobMouseReleased
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        calAge();
+        
    
-        if (jpatID.getText().equals("")||jPatPhone.getText().equals("")||jPatName.getText().equals("")||jPatAge.getText().equals("")||jPatAddrss.getText().equals("")||jPatGen.getSelectedItem().equals("")) {
+        if (jpatID.getText().equals("")||jPatPhone.getText().equals("")||jPatName.getText().equals("")||jPatAddrss.getText().equals("")||jPatGen.getSelectedItem().equals("")) {
             JOptionPane.showMessageDialog(this,"Please enter all the data");
         }
         else{
-            String PatientData[]={jpatID.getText(),jPatName.getText(),jPatPhone.getText(),jPatAddrss.getText(),jpatdob.getDate().toString(),jPatGen.getSelectedItem().toString(),jPatAge.getText(),};
+            /*String PatientData[]={jpatID.getText(),jPatName.getText(),jPatPhone.getText(),jPatAddrss.getText(),jpatdob.getDate().toString(),jPatGen.getSelectedItem().toString(),jPatAge.getText(),};
             
-            DefaultTableModel tblModl=(DefaultTableModel)jTable2.getModel();
+            
             tblModl.addRow(PatientData);
+            ArrayList<Patient> pat=new ArrayList<Patient>();
+            pat.add(new Patient(patId,patName,patPhone,patAddress,patDOB,gender,age));*/
+            calAge();
+            addArrayDatatoTable();
             
             JOptionPane.showMessageDialog(this,"Data Added Successfully");
+           
         }
+        
        
     }//GEN-LAST:event_jButton1ActionPerformed
+    public class PatientDetails {
+    public String patID;
+    public String patName;
+    public String patPhone;
+    public String patAddrss;
+    public String patDOB;
+    public String patGendr;
+    public String PatAge;
 
+    public PatientDetails(String patID, String patName, String patPhone, String patAddrss, String patDOB, String patGendr, String PatAge) {
+        this.patID = patID;
+        this.patName = patName;
+        this.patPhone = patPhone;
+        this.patAddrss = patAddrss;
+        this.patDOB = patDOB;
+        this.patGendr = patGendr;
+        this.PatAge = PatAge;
+    }
+}
+    public ArrayList ListPatient(){
+        ArrayList<PatientDetails> list=new ArrayList<PatientDetails>();
+        PatientDetails p1=new PatientDetails(jpatID.getText(), jPatName.getText(), jPatPhone.getText(), jPatAddrss.getText(), jpatdob.getDate().toString(), jPatGen.getSelectedItem().toString(), jPatAge.toString());
+        list.add(p1);
+        return list;
+    }
+    public void addArrayDatatoTable(){
+        DefaultTableModel model=(DefaultTableModel)jTable2.getModel();
+        ArrayList<PatientDetails> list=ListPatient();
+        Object rowData[]=new Object[7];
+        
+        for (int i=0; i<list.size();i++){
+            rowData[0]=list.get(i).patID;
+            rowData[1]=list.get(i).patName;
+            rowData[2]=list.get(i).patPhone;
+            rowData[3]=list.get(i).patAddrss;
+            rowData[4]=list.get(i).patDOB;
+            rowData[5]=list.get(i).patGendr;
+            rowData[6]=list.get(i).PatAge;
+            model.addRow(rowData);
+        }
+    }
+
+    
     private void jpatdobMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpatdobMousePressed
           // TODO add your handling code here:
     }//GEN-LAST:event_jpatdobMousePressed
@@ -474,6 +549,10 @@ public class Patient extends javax.swing.JFrame {
         jPatAddrss.setText("");
         jPatAge.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -507,6 +586,7 @@ public class Patient extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Patient().setVisible(true);
+                
             }
         });
     }
