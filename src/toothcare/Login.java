@@ -234,8 +234,8 @@ public class Login extends javax.swing.JFrame {
         ArrayList PasswrdAd=new ArrayList();
         ArrayList Doc =new ArrayList();
         ArrayList PasswrdDoc=new ArrayList();
-        Admin.add("Admin001");
-        PasswrdAd.add("admin123");
+        Admin.add("Gayani");
+        PasswrdAd.add("gayani123");
         Doc.add("DOC");
         PasswrdDoc.add("doc123");
         

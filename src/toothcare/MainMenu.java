@@ -200,7 +200,7 @@ public class MainMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        Patient pat=new Patient();
+        Payment pat=new Payment();
         pat.show();
         this.dispose();
         // TODO add your handling code here:
