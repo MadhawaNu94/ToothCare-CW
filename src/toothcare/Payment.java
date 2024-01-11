@@ -61,7 +61,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnInvoice = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -69,7 +69,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboTreat = new javax.swing.JComboBox<>();
         lblpatNamepay = new javax.swing.JLabel();
         lblappNopay = new javax.swing.JLabel();
         lbltrreatFee = new javax.swing.JLabel();
@@ -112,13 +112,13 @@ public class Payment extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Submit");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnInvoice.setBackground(new java.awt.Color(0, 204, 204));
+        btnInvoice.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnInvoice.setForeground(new java.awt.Color(255, 255, 255));
+        btnInvoice.setText("Invoice");
+        btnInvoice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnInvoiceActionPerformed(evt);
             }
         });
 
@@ -161,7 +161,7 @@ public class Payment extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Total Fee");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cleaning", "Whitening", "Filling", "Nerve Filling", "Root Canal Therapy" }));
+        comboTreat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cleaning", "Whitening", "Filling", "Nerve Filling", "Root Canal Therapy" }));
 
         lblpatNamepay.setBackground(new java.awt.Color(102, 0, 51));
         lblpatNamepay.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -218,7 +218,7 @@ public class Payment extends javax.swing.JFrame {
                                     .addComponent(jLabel8))
                                 .addGap(64, 64, 64)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboTreat, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblpatNamepay, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lblappNopay, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(lbltrreatFee, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,7 +228,7 @@ public class Payment extends javax.swing.JFrame {
                                 .addGap(0, 19, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
-                        .addComponent(jButton1)
+                        .addComponent(btnInvoice)
                         .addGap(28, 28, 28)
                         .addComponent(jButton3)))
                 .addContainerGap())
@@ -258,7 +258,7 @@ public class Payment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comboTreat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
@@ -273,7 +273,7 @@ public class Payment extends javax.swing.JFrame {
                     .addComponent(lblTotrFee))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnInvoice)
                     .addComponent(jButton3))
                 .addGap(112, 112, 112))
         );
@@ -345,11 +345,16 @@ public class Payment extends javax.swing.JFrame {
         this.hide();// TODO add your handling code here:
     }//GEN-LAST:event_jLabel15MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+    private void btnInvoiceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvoiceActionPerformed
+    String invoice = "Patient Name: " + lblpatNamepay.getText() + "\n"
+                + "Date: " + lblappdatepay1.getText() + "\n"
+                + "Treatment: " + comboTreat.getSelectedItem().toString() + "\n"
+                + "Total Amount: " + lblTotrFee.getText();
+
+        JOptionPane.showMessageDialog(this, invoice, "Invoice", JOptionPane.INFORMATION_MESSAGE);
         
        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnInvoiceActionPerformed
     
     
     
@@ -403,9 +408,9 @@ public class Payment extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnInvoice;
+    private javax.swing.JComboBox<String> comboTreat;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
