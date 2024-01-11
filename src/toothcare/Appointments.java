@@ -50,7 +50,6 @@ public class Appointments extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         lblTimeSlot = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnSave = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnPayment = new javax.swing.JButton();
         txtAppID = new javax.swing.JTextField();
@@ -130,15 +129,6 @@ public class Appointments extends javax.swing.JFrame {
             }
         });
 
-        btnSave.setBackground(new java.awt.Color(0, 153, 153));
-        btnSave.setForeground(new java.awt.Color(255, 255, 255));
-        btnSave.setText("Save");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
-            }
-        });
-
         btnEdit.setBackground(new java.awt.Color(153, 51, 0));
         btnEdit.setForeground(new java.awt.Color(255, 255, 255));
         btnEdit.setText("Edit");
@@ -158,7 +148,6 @@ public class Appointments extends javax.swing.JFrame {
         });
 
         txtAppID.setForeground(new java.awt.Color(204, 204, 204));
-        txtAppID.setText("Enter Appointment ID");
         txtAppID.setToolTipText("");
         txtAppID.setOpaque(true);
         txtAppID.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -167,6 +156,11 @@ public class Appointments extends javax.swing.JFrame {
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtAppIDFocusLost(evt);
+            }
+        });
+        txtAppID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAppIDActionPerformed(evt);
             }
         });
 
@@ -239,11 +233,9 @@ public class Appointments extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 732, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(btnSave)
-                                .addGap(65, 65, 65)
-                                .addComponent(btnEdit)
-                                .addGap(60, 60, 60)
-                                .addComponent(btnPayment))
+                                .addComponent(btnPayment)
+                                .addGap(55, 55, 55)
+                                .addComponent(btnEdit))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(txtAppID, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -324,7 +316,6 @@ public class Appointments extends javax.swing.JFrame {
                         .addComponent(jpatAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSave)
                     .addComponent(btnEdit)
                     .addComponent(btnPayment))
                 .addGap(18, 18, 18)
@@ -408,21 +399,6 @@ public class Appointments extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        int appointmentId = Integer.parseInt(txtAppId1.getText());
-        String name = jPatName.getText();
-        String address=jpatAdd.getText();
-        String phone = jPatPhone.getText();
-        Date date = appDateChs.getDate();
-        String strDate = format1.format(date);
-        String timeSlot = lblTimeSlot.getText();
-        
-        dataModel.makeAppointment(appointmentId, name, address, strDate, phone,timeSlot);
-        new Appointments().setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnSaveActionPerformed
-
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
         Date date = appDateChs.getDate();
@@ -445,8 +421,18 @@ public class Appointments extends javax.swing.JFrame {
 
     private void btnPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentActionPerformed
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        int appointmentId = Integer.parseInt(txtAppId1.getText());
+        String name = jPatName.getText();
+        String address=jpatAdd.getText();
+        String phone = jPatPhone.getText();
         Date date = appDateChs.getDate();
         String strDate = format1.format(date);
+        String timeSlot = lblTimeSlot.getText();
+        
+        dataModel.makeAppointment(appointmentId, name, address, strDate, phone,timeSlot);
+        new Appointments().setVisible(true);
+        this.setVisible(false);
+        
         
         Payment pay=new Payment();
         pay.lblappNopay.setText(txtAppId1.getText());
@@ -458,10 +444,7 @@ public class Appointments extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPaymentActionPerformed
 
     private void txtAppIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAppIDFocusGained
-        if(txtAppID.getText().equals("Enter Appointment Number")){
-            txtAppID.setText("");
-            txtAppID.setForeground(new Color(153,153,153));
-        }
+        
     }//GEN-LAST:event_txtAppIDFocusGained
 
     private void txtAppIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAppIDFocusLost
@@ -492,8 +475,8 @@ public class Appointments extends javax.swing.JFrame {
             af.lblTimeSlot.setText(appointment.getTimeSlot());
            /* af.btnUpdate.setVisible(true);
             af.btnPayment.setVisible(true);
-            af.btnSubmit.setVisible(false);
-            af.setVisible(true);*/
+            af.btnSubmit.setVisible(false);*/
+            af.setVisible(true);
             this.setVisible(false);
         }else{
             JOptionPane.showMessageDialog(Appointments.this, "Appointment not found.");
@@ -551,6 +534,10 @@ public class Appointments extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_appDateChsPropertyChange
 
+    private void txtAppIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAppIDActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -592,7 +579,6 @@ public class Appointments extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser appointmentDate;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnPayment;
-    private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearchByID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

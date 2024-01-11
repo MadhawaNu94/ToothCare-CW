@@ -8,11 +8,13 @@ import Model.DataModel;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.demo.DateChooserPanel;
 import java.awt.HeadlessException;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.Period;
 import java.util.ArrayList;
+import java.util.Map;
 import javax.management.modelmbean.ModelMBean;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -162,6 +164,11 @@ public class Payment extends javax.swing.JFrame {
         jLabel23.setText("Total Fee");
 
         comboTreat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cleaning", "Whitening", "Filling", "Nerve Filling", "Root Canal Therapy" }));
+        comboTreat.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                comboTreatItemStateChanged(evt);
+            }
+        });
 
         lblpatNamepay.setBackground(new java.awt.Color(102, 0, 51));
         lblpatNamepay.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
@@ -367,6 +374,29 @@ public class Payment extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowOpened
+
+    private void comboTreatItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboTreatItemStateChanged
+        DecimalFormat df = new DecimalFormat("0.00");
+        // Retrieve the treatments map from the data manager
+        Map<String, Double> treatments = dataModel.getTreatments();
+        // Get the selected treatment from the combo box
+        String treatment = comboTreat.getSelectedItem().toString();
+        double fee = 0.00;
+        // Iterate over treatments to find the fee for the selected treatment
+        for (String key : treatments.keySet()){
+            if(key.equals(treatment)){
+                fee = treatments.get(key);
+                break;
+            }
+        }
+        // Calculate the total fee by adding the registration fee and treatment fee
+        double total = Double.parseDouble(lblRegFee1.getText()) + fee;
+        // Set labels to display information
+        lblTotrFee.setText(treatment);
+        lbltrreatFee.setText(String.valueOf(df.format(fee)));
+        lblTotrFee.setText(String.valueOf(df.format(total)));
+                                      
+    }//GEN-LAST:event_comboTreatItemStateChanged
 
     /**
      * @param args the command line arguments
