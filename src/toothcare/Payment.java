@@ -4,6 +4,7 @@
  */
 package toothcare;
 
+import Model.DataModel;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.demo.DateChooserPanel;
 import java.awt.HeadlessException;
@@ -30,8 +31,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Payment extends javax.swing.JFrame {
 
-    
-
+        DataModel dataModel = DataModel.getInstance();
     
     
     
@@ -70,8 +70,13 @@ public class Payment extends javax.swing.JFrame {
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
+        lblpatNamepay = new javax.swing.JLabel();
+        lblappNopay = new javax.swing.JLabel();
+        lbltrreatFee = new javax.swing.JLabel();
+        lblappdatepay1 = new javax.swing.JLabel();
+        lblRegFee1 = new javax.swing.JLabel();
+        lblTotrFee = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
 
         jLabel14.setFont(new java.awt.Font("Harrington", 1, 18)); // NOI18N
@@ -158,6 +163,36 @@ public class Payment extends javax.swing.JFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cleaning", "Whitening", "Filling", "Nerve Filling", "Root Canal Therapy" }));
 
+        lblpatNamepay.setBackground(new java.awt.Color(102, 0, 51));
+        lblpatNamepay.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblpatNamepay.setForeground(new java.awt.Color(255, 255, 255));
+        lblpatNamepay.setText("Patient's Name");
+
+        lblappNopay.setBackground(new java.awt.Color(102, 0, 51));
+        lblappNopay.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblappNopay.setForeground(new java.awt.Color(255, 255, 255));
+        lblappNopay.setText("app no");
+
+        lbltrreatFee.setBackground(new java.awt.Color(102, 0, 51));
+        lbltrreatFee.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lbltrreatFee.setForeground(new java.awt.Color(255, 255, 255));
+        lbltrreatFee.setText("app date");
+
+        lblappdatepay1.setBackground(new java.awt.Color(102, 0, 51));
+        lblappdatepay1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblappdatepay1.setForeground(new java.awt.Color(255, 255, 255));
+        lblappdatepay1.setText("app date");
+
+        lblRegFee1.setBackground(new java.awt.Color(102, 0, 51));
+        lblRegFee1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblRegFee1.setForeground(new java.awt.Color(255, 255, 255));
+        lblRegFee1.setText("app date");
+
+        lblTotrFee.setBackground(new java.awt.Color(102, 0, 51));
+        lblTotrFee.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
+        lblTotrFee.setForeground(new java.awt.Color(255, 255, 255));
+        lblTotrFee.setText("app date");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -174,20 +209,23 @@ public class Payment extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel18)
-                                            .addComponent(jLabel19)
-                                            .addComponent(jLabel21)
-                                            .addComponent(jLabel22)
-                                            .addComponent(jLabel23)
-                                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                                .addComponent(jLabel20)
-                                                .addGap(32, 32, 32)))
-                                        .addGap(64, 64, 64)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 104, Short.MAX_VALUE))))
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel19)
+                                    .addComponent(jLabel21)
+                                    .addComponent(jLabel22)
+                                    .addComponent(jLabel23)
+                                    .addComponent(jLabel20)
+                                    .addComponent(jLabel8))
+                                .addGap(64, 64, 64)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblpatNamepay, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblappNopay, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbltrreatFee, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblappdatepay1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblRegFee1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTotrFee, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 19, Short.MAX_VALUE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
                         .addComponent(jButton1)
@@ -206,21 +244,33 @@ public class Payment extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel12)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(lblpatNamepay))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel19)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(lblappNopay))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel18)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(lblappdatepay1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel22)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(lblRegFee1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(lbltrreatFee))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel23)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(lblTotrFee))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -229,10 +279,6 @@ public class Payment extends javax.swing.JFrame {
         );
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGEES/toppng.com-dentistree-dental-clinic-implant-cosmetology-452x635.png"))); // NOI18N
-
-        jLabel13.setFont(new java.awt.Font("Harrington", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(153, 51, 0));
-        jLabel13.setText("Patients");
 
         jLabel15.setFont(new java.awt.Font("Harrington", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(153, 51, 0));
@@ -255,11 +301,6 @@ public class Payment extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(472, 472, 472))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(401, 401, 401)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(401, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,11 +313,6 @@ public class Payment extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(282, 282, 282)
-                    .addComponent(jLabel13)
-                    .addContainerGap(283, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -372,7 +408,6 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel18;
@@ -385,5 +420,11 @@ public class Payment extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    protected static javax.swing.JLabel lblRegFee1;
+    protected static javax.swing.JLabel lblTotrFee;
+    protected static javax.swing.JLabel lblappNopay;
+    protected static javax.swing.JLabel lblappdatepay1;
+    protected static javax.swing.JLabel lblpatNamepay;
+    protected static javax.swing.JLabel lbltrreatFee;
     // End of variables declaration//GEN-END:variables
 }

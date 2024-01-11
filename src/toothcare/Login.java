@@ -248,10 +248,12 @@ public class Login extends javax.swing.JFrame {
         else if (Admin.contains(jtxtlogUsername.getText())&&PasswrdAd.contains(jPasfldlogUserPass.getText()))  {
             MainMenu mainmn=new MainMenu();
             mainmn.show();
+            this.setVisible(false);
         }
         else if(Doc.contains(jtxtlogUsername.getText())&&PasswrdDoc.contains(jPasfldlogUserPass.getText())){
             Treatement trtments =new Treatement();
             trtments.show();
+            this.setVisible(false);
         }
         
         else{

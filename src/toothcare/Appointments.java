@@ -52,7 +52,7 @@ public class Appointments extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPayment = new javax.swing.JButton();
         txtAppID = new javax.swing.JTextField();
         btnSearchByID = new javax.swing.JButton();
         appDateChs = new com.toedter.calendar.JDateChooser();
@@ -62,7 +62,7 @@ public class Appointments extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPatPhone = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtAppId = new javax.swing.JTextField();
+        txtAppId1 = new javax.swing.JTextField();
         lblTime = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jpatAdd = new javax.swing.JTextField();
@@ -148,12 +148,12 @@ public class Appointments extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Delete");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnPayment.setBackground(new java.awt.Color(255, 51, 51));
+        btnPayment.setForeground(new java.awt.Color(255, 255, 255));
+        btnPayment.setText("Payments");
+        btnPayment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnPaymentActionPerformed(evt);
             }
         });
 
@@ -243,7 +243,7 @@ public class Appointments extends javax.swing.JFrame {
                                 .addGap(65, 65, 65)
                                 .addComponent(btnEdit)
                                 .addGap(60, 60, 60)
-                                .addComponent(jButton3))
+                                .addComponent(btnPayment))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(txtAppID, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -258,18 +258,16 @@ public class Appointments extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel5))
-                            .addComponent(txtAppId))
+                            .addComponent(txtAppId1))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jPatName, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel8))
                             .addComponent(jpatAdd, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
@@ -297,7 +295,7 @@ public class Appointments extends javax.swing.JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAppId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAppId1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -328,7 +326,7 @@ public class Appointments extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnEdit)
-                    .addComponent(jButton3))
+                    .addComponent(btnPayment))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
@@ -412,7 +410,7 @@ public class Appointments extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
-        int appointmentId = Integer.parseInt(txtAppID.getText());
+        int appointmentId = Integer.parseInt(txtAppId1.getText());
         String name = jPatName.getText();
         String address=jpatAdd.getText();
         String phone = jPatPhone.getText();
@@ -445,9 +443,19 @@ public class Appointments extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnEditActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnPaymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPaymentActionPerformed
+        SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = appDateChs.getDate();
+        String strDate = format1.format(date);
+        
+        Payment pay=new Payment();
+        pay.lblappNopay.setText(txtAppId1.getText());
+        pay.lblpatNamepay.setText(jPatName.getText());
+        pay.lblappdatepay1.setText(strDate);
+        pay.lblRegFee1.setText("1000.00");
+        pay.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnPaymentActionPerformed
 
     private void txtAppIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAppIDFocusGained
         if(txtAppID.getText().equals("Enter Appointment Number")){
@@ -516,7 +524,7 @@ public class Appointments extends javax.swing.JFrame {
 
     private void appDateChsPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_appDateChsPropertyChange
         DateFormat format2 = new SimpleDateFormat("EEEE"); 
-        Date date = appointmentDate.getDate();
+        Date date = appDateChs.getDate();
         if(date != null){
             String dayOfWeek = format2.format(date);
             if(dayOfWeek.equalsIgnoreCase("monday")){
@@ -583,9 +591,9 @@ public class Appointments extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser appDateChs;
     private com.toedter.calendar.JDateChooser appointmentDate;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnPayment;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearchByID;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel15;
@@ -610,6 +618,6 @@ public class Appointments extends javax.swing.JFrame {
     private javax.swing.JButton searchByDate;
     private javax.swing.JTable tblAppList;
     private javax.swing.JTextField txtAppID;
-    private javax.swing.JTextField txtAppId;
+    private javax.swing.JTextField txtAppId1;
     // End of variables declaration//GEN-END:variables
 }
