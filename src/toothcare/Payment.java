@@ -173,32 +173,32 @@ public class Payment extends javax.swing.JFrame {
         lblpatNamepay.setBackground(new java.awt.Color(102, 0, 51));
         lblpatNamepay.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lblpatNamepay.setForeground(new java.awt.Color(255, 255, 255));
-        lblpatNamepay.setText("Patient's Name");
+        lblpatNamepay.setText(".......................................");
 
         lblappNopay.setBackground(new java.awt.Color(102, 0, 51));
         lblappNopay.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lblappNopay.setForeground(new java.awt.Color(255, 255, 255));
-        lblappNopay.setText("app no");
+        lblappNopay.setText(".......................................");
 
         lbltrreatFee.setBackground(new java.awt.Color(102, 0, 51));
         lbltrreatFee.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lbltrreatFee.setForeground(new java.awt.Color(255, 255, 255));
-        lbltrreatFee.setText("app date");
+        lbltrreatFee.setText("......................................");
 
         lblappdatepay1.setBackground(new java.awt.Color(102, 0, 51));
         lblappdatepay1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lblappdatepay1.setForeground(new java.awt.Color(255, 255, 255));
-        lblappdatepay1.setText("app date");
+        lblappdatepay1.setText(".......................................");
 
         lblRegFee1.setBackground(new java.awt.Color(102, 0, 51));
         lblRegFee1.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lblRegFee1.setForeground(new java.awt.Color(255, 255, 255));
-        lblRegFee1.setText("app date");
+        lblRegFee1.setText("......................................");
 
         lblTotrFee.setBackground(new java.awt.Color(102, 0, 51));
         lblTotrFee.setFont(new java.awt.Font("Calibri", 0, 18)); // NOI18N
         lblTotrFee.setForeground(new java.awt.Color(255, 255, 255));
-        lblTotrFee.setText("app date");
+        lblTotrFee.setText("......................................");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

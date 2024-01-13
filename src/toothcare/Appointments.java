@@ -315,9 +315,9 @@ public class Appointments extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jpatAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnEdit)
-                    .addComponent(btnPayment))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnPayment)
+                    .addComponent(btnEdit))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel10)
                 .addGap(18, 18, 18)
@@ -448,10 +448,7 @@ public class Appointments extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAppIDFocusGained
 
     private void txtAppIDFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtAppIDFocusLost
-        if(txtAppID.getText().equals("")){
-            txtAppID.setText("Enter Appointment Number");
-            txtAppID.setForeground(new Color(153,153,153));
-        }
+        
     }//GEN-LAST:event_txtAppIDFocusLost
 
     private void btnSearchByIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByIDActionPerformed
@@ -473,9 +470,6 @@ public class Appointments extends javax.swing.JFrame {
             af.jPatPhone.setText(appointment.getPatientPhoneNumber());
             af.appDateChs.setDate(date);
             af.lblTimeSlot.setText(appointment.getTimeSlot());
-           /* af.btnUpdate.setVisible(true);
-            af.btnPayment.setVisible(true);
-            af.btnSubmit.setVisible(false);*/
             af.setVisible(true);
             this.setVisible(false);
         }else{

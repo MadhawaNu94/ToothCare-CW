@@ -21,11 +21,11 @@ public class DataModel {
     private DataModel() {
         appointments = new ArrayList<>(); // Initialize the appointments list with an ArrayList
         treatments = new HashMap<>(); // Initialize the treatments map with an HashMap
-        treatments.put("Cleaning", 12000.00);
-        treatments.put("Whitening", 10000.00);
-        treatments.put("Filling", 5000.00);
-        treatments.put("Nerve Filling", 15000.00);
-        treatments.put("Root Canal Therapy", 25000.00);
+        treatments.put("Cleaning", 850.00);
+        treatments.put("Whitening", 2500.00);
+        treatments.put("Filling", 1800.00);
+        treatments.put("Nerve Filling", 4000.00);
+        treatments.put("Root Canal Therapy", 4500.00);
     }
 
     // implementation of singleton design pattern
